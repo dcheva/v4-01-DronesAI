@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn5xak2whbiub"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_hefkm"]
+[ext_resource type="Script" path="res://addons/behaviour_toolkit/behaviour_tree/bt_root.gd" id="2_s52ft"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_hefkm")
+
+[node name="BTRoot" type="Node" parent="."]
+script = ExtResource("2_s52ft")
