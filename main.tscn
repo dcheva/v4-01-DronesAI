@@ -1,14 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn5xak2whbiub"]
+[gd_scene load_steps=4 format=3 uid="uid://ly1g65h4ix4n"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_hefkm"]
 [ext_resource type="Script" path="res://addons/behaviour_toolkit/behaviour_tree/bt_root.gd" id="2_s52ft"]
-[ext_resource type="Script" path="res://bt_leaf.gd" id="3_afgnk"]
+
+[sub_resource type="GDScript" id="GDScript_4lq83"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="GDScript" id="GDScript_ngl8a"]
+script/source = "@tool
+extends BTLeaf
+
+
+# Gets called every tick of the behavior tree
+func tick(_delta: float, _actor: Node, _blackboard: Blackboard) -> BTStatus:
+	# Handle leaf logic
+	# Return SUCCESS, FAILURE, or RUNNING
+	return BTStatus.SUCCESS
+
+
+# Add custom configuration warnings
+# Note: Can be deleted if you don't want to define your own warnings.
+func _get_configuration_warnings() -> PackedStringArray:
+	var warnings: Array = []
+
+	warnings.append_array(super._get_configuration_warnings())
+
+	# Add your own warnings to the array here
+
+	return warnings
+"
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_hefkm")
+script = SubResource("GDScript_4lq83")
 
 [node name="BTRoot" type="Node" parent="."]
 script = ExtResource("2_s52ft")
 
 [node name="BTLeaf" type="Node" parent="BTRoot"]
-script = ExtResource("3_afgnk")
+script = SubResource("GDScript_ngl8a")

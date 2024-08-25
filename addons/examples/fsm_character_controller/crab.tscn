@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ds1mew31yiyj"]
 
-[ext_resource type="Texture2D" uid="uid://cnjtcqmw1tee" path="res://examples/assets/actors/tiny_crab.png" id="1_5suvw"]
+[ext_resource type="Texture2D" uid="uid://cnjtcqmw1tee" path="res://addons/examples/assets/actors/tiny_crab.png" id="1_5suvw"]
 [ext_resource type="Script" path="res://addons/behaviour_toolkit/behaviour_tree/bt_root.gd" id="2_eevb3"]
 [ext_resource type="Script" path="res://addons/behaviour_toolkit/behaviour_tree/composites/bt_random.gd" id="3_dv664"]
 [ext_resource type="Script" path="res://addons/behaviour_toolkit/behaviour_tree/composites/bt_sequence.gd" id="4_iyxnv"]

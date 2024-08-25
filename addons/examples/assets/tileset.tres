@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=6 format=3 uid="uid://dtkgrk566xb21"]
 
-[ext_resource type="Texture2D" uid="uid://duvn8ey0oylmd" path="res://examples/assets/kenney_tinytown.png" id="1_6g1fr"]
+[ext_resource type="Texture2D" uid="uid://duvn8ey0oylmd" path="res://addons/examples/assets/kenney_tinytown.png" id="1_6g1fr"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_t2t8d"]
 tile_data = PackedInt32Array(0, 0, 4, 65536, 0, 5, 131072, 0, 6, 196608, 0, 6, 1, 65536, 4, 65537, 65536, 5, 131073, 0, 7, 196609, 65536, 6, 2, 65536, 4, 65538, 65536, 5, 131074, 65536, 6, 196610, 65536, 6, 3, 65536, 4, 65539, 65536, 5, 131075, 0, 7, 196611, 65536, 6, 4, 65536, 4, 65540, 65536, 5, 131076, 65536, 6, 196612, 65536, 7, 5, 196608, 4, 65541, 196608, 5, 131077, 0, 7, 196613, 65536, 6, 6, 131072, 4, 65542, 131072, 5, 131078, 196608, 6, 196614, 196608, 6)
