@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://1wj0sxo8ulcl"]
+[gd_scene load_steps=10 format=3 uid="uid://1wj0sxo8ulcl"]
 
+[ext_resource type="Script" path="res://drone.gd" id="1_ce35t"]
 [ext_resource type="Texture2D" uid="uid://ctxa8inwf1vg8" path="res://art/drone.png" id="1_dcx1t"]
 
 [sub_resource type="Animation" id="Animation_goicq"]
@@ -115,6 +116,7 @@ _data = {
 [node name="Drone" type="CharacterBody2D"]
 z_index = 500
 position = Vector2(640, 456)
+script = ExtResource("1_ce35t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(5, 15)

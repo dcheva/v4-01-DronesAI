@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bikg4j4cev765"]
+[gd_scene load_steps=6 format=3 uid="uid://bikg4j4cev765"]
 
 [ext_resource type="Texture2D" uid="uid://c6sc5t4m15gkc" path="res://art/water.png" id="1_bgh7s"]
 [ext_resource type="Texture2D" uid="uid://bqdjcdblarmm0" path="res://art/window.png" id="2_m1mwx"]
 [ext_resource type="Texture2D" uid="uid://6mrss124i25x" path="res://art/panel.png" id="3_8m4ve"]
 [ext_resource type="PackedScene" uid="uid://1wj0sxo8ulcl" path="res://drone.tscn" id="3_rg53n"]
 [ext_resource type="Texture2D" uid="uid://7dicax063o5j" path="res://art/shadow.png" id="5_m0rb1"]
-[ext_resource type="Script" path="res://drone.gd" id="5_typwg"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -33,7 +32,6 @@ position = Vector2(640, 360)
 [node name="Drone" parent="." instance=ExtResource("3_rg53n")]
 position = Vector2(240, 360)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("5_typwg")
 
 [node name="Shadow" type="Sprite2D" parent="Drone"]
 z_index = 500
