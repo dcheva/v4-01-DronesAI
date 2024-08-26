@@ -3,3 +3,8 @@
 - Add BehaviourToolkit from AssetsLib to Project Root.
 - BTs are used for AI while FSMs are used for more general visual programming
 - Add BTRoot node to Main scene. Add one child BTLeaf to BTRoot node.
+---
+### Drone fishing
+- Add simple drone, intarface windows and one Lake texture
+- Update setting to optimise productivity but disable V-Sync to save power
+- Temporary disable BT
