@@ -1,41 +1,48 @@
 extends CharacterBody2D
 
-@export var Xspeed := 500
-@export var Yspeed := 1.0/3.0
-@export var Zspeed := 1.0/1.3
-@export var screen := Vector2i(1280, 540)
-@export var scale_k := 10
+var screen := Vector2i(1280, 540)
+var Xspeed := 500
+var Yspeed := 1.0/3.0
+var Zspeed := 1.0/1.5
+var scale_k := 1.25
+var max_x := 1280
+var max_y := -1620
+var max_z := 480
 var scale_to := 1.0
 var velocity3 := Vector3.ZERO
 var position3 := Vector3.ZERO
+var sun_pos := Vector2(-0.25, -0.35) 
 
 func _physics_process(delta: float) -> void:
 	var velocity3_to := get_input_vetor3i() * Xspeed * delta
 	if velocity3_to.z > 0:
 		# Climb
-		$AnimationPlayer.play("Load")
+		if $AnimationPlayer.current_animation != "Damage":
+			$AnimationPlayer.current_animation = "Load"
 	elif velocity3_to.length() > 1:
 		# Move
-		$AnimationPlayer.play("Move")
+		if $AnimationPlayer.current_animation != "Damage":
+			$AnimationPlayer.current_animation = "Move"
 	else:
 		# Chill
-		$AnimationPlayer.play("idle")
+			$AnimationPlayer.current_animation = "idle"
 	
 	# LERP veloctity 3d and change position in memory
-	velocity3 = lerp(velocity3, velocity3_to, delta * 4)
+	velocity3 = lerp(velocity3, velocity3_to * scale_to, delta * 4)
 	get_tested_values3()
 	position3 += velocity3
+	# Convert Vector2 to Vector 3 and change position on screen
+	position = pos3_to_pos2(position3)
 	
 	# Parallax on Y axis
-	var s: float = screen.y / (screen.y + scale_k * sqrt3(scale_k * -position3.y))
+	var s: float = screen.y / (screen.y + (scale_k * -position3.y))
 	scale_to = s
 	self.scale = Vector2(scale_to, scale_to)
 	
-	# Convert Vector2 to Vector 3 and change position on screen
-	velocity = vector3_to_vector2(velocity3) * scale_to
-	position += velocity
 	# The Height affects the shadow distance
-	$Shadow.position = Vector2(25 + position3.z/4, 50 + position3.z/1.2)
+	$Shadow.position = Vector2(
+		20 + -sun_pos.x * position3.z / scale_to, 
+		40 + -sun_pos.y * 2 * position3.z / scale_to)
 	
 	print(scale_to, " ", position3, " ", position)
 	move_and_slide()
@@ -43,7 +50,24 @@ func _physics_process(delta: float) -> void:
 ## Test the position3 + velocity3 are in the bounds and are not collided
 func get_tested_values3() -> void:
 # Correct velocity3 and add warning $AnimationPlayer.play("Warning, Damage")
-	pass
+	var velocity3test := velocity3
+	if position3.x > max_x:
+		velocity3test.x = -1
+	if position3.x < 0:
+		velocity3test.x = 1
+	if position3.y > 0:
+		velocity3test.y = -1
+	if position3.y < max_y:
+		velocity3test.y = 1
+	if position3.z < 0:
+		velocity3test.z = 1
+	if position3.z > max_z:
+		velocity3test.z = -1
+		
+	if velocity3test != velocity3:
+		velocity3 = velocity3test
+		$AnimationPlayer.current_animation = "Damage"
+	
 	
 ## Returns Vector3i(x:right,-y:forward, z:up)
 func get_input_vetor3i() -> Vector3i:
@@ -63,8 +87,8 @@ func get_input_vetor3i() -> Vector3i:
 	return vector3i
 	
 ## Returns Vector3 proection to 2d perspective
-func vector3_to_vector2(vector3: Vector3) -> Vector2:
-	return Vector2(vector3.x, vector3.y * Yspeed - vector3.z * Zspeed)
+func pos3_to_pos2(vector3: Vector3) -> Vector2:
+	return Vector2(vector3.x, screen.y + vector3.y * Yspeed - vector3.z * Zspeed)
 	
 func sqrt3(square: float) -> float:
 	if square < 0:
