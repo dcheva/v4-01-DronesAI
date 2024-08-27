@@ -118,7 +118,6 @@ _data = {
 z_index = 500
 position = Vector2(640, 456)
 script = ExtResource("1_ce35t")
-max_length3 = Vector3i(1120, -1080, 480)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(5, 15)
