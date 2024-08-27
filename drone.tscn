@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://1wj0sxo8ulcl"]
+[gd_scene load_steps=11 format=3 uid="uid://1wj0sxo8ulcl"]
 
 [ext_resource type="Script" path="res://drone.gd" id="1_ce35t"]
 [ext_resource type="Texture2D" uid="uid://ctxa8inwf1vg8" path="res://art/drone.png" id="1_dcx1t"]
+[ext_resource type="Texture2D" uid="uid://7dicax063o5j" path="res://art/shadow.png" id="3_rqryj"]
 
 [sub_resource type="Animation" id="Animation_nelwj"]
 resource_name = "Damage"
@@ -137,3 +138,8 @@ position = Vector2(-1, -7)
 scale = Vector2(2, 2)
 color = Color(0, 1, 0, 1)
 polygon = PackedVector2Array(2, 2.5, 5, 3.5, 6, 6, 5, 8.5, 2, 9.5, -1, 8.5, -2, 6, -1, 3.5)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+z_index = 500
+position = Vector2(25, 50)
+texture = ExtResource("3_rqryj")

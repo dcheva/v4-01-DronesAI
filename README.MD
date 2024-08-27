@@ -8,3 +8,4 @@
 - Add simple drone, intarface windows and one Lake texture
 - Update setting to optimise productivity but disable V-Sync to save power
 - Temporary disable BT
+- Tested proto3d without distamce scaling and bounds/collisions checks and signals
