@@ -29,5 +29,5 @@ texture = ExtResource("3_8m4ve")
 position = Vector2(640, 360)
 
 [node name="Drone" parent="." instance=ExtResource("3_rg53n")]
-position = Vector2(240, 360)
+position = Vector2(72, 504)
 scale = Vector2(0.5, 0.5)
