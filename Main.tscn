@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bikg4j4cev765"]
+
+[ext_resource type="Texture2D" uid="uid://bqdjcdblarmm0" path="res://art/window.png" id="1_30fly"]
+[ext_resource type="Texture2D" uid="uid://6mrss124i25x" path="res://art/panel.png" id="2_gs2xs"]
+[ext_resource type="Texture2D" uid="uid://c6sc5t4m15gkc" path="res://art/water.png" id="3_vw2cu"]
+[ext_resource type="PackedScene" uid="uid://1wj0sxo8ulcl" path="res://drone.tscn" id="4_3rrcb"]
+
+[node name="Main" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="GUI" type="CanvasLayer" parent="World"]
+
+[node name="MapWindowR" type="Sprite2D" parent="World/GUI"]
+position = Vector2(1088, 120)
+texture = ExtResource("1_30fly")
+
+[node name="MapWindowL" type="Sprite2D" parent="World/GUI"]
+position = Vector2(192, 120)
+texture = ExtResource("1_30fly")
+
+[node name="Panel" type="Sprite2D" parent="World/GUI"]
+position = Vector2(640, 632)
+texture = ExtResource("2_gs2xs")
+
+[node name="Camera2D" type="Camera2D" parent="World/GUI"]
+position = Vector2(640, 360)
+
+[node name="Water" type="Sprite2D" parent="World"]
+position = Vector2(640, 272)
+texture = ExtResource("3_vw2cu")
+
+[node name="Drone" parent="World" instance=ExtResource("4_3rrcb")]
+position = Vector2(72, 504)
+scale = Vector2(0.5, 0.5)

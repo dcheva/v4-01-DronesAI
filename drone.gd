@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	position3 += velocity3
 	
 	# Parallax on Y axis
-	var s: float = screen.y / (screen.y + scale_k * sqrt(scale_k * -position3.y))
+	var s: float = screen.y / (screen.y + scale_k * sqrt3(scale_k * -position3.y))
 	scale_to = s
 	self.scale = Vector2(scale_to, scale_to)
 	
@@ -66,4 +66,7 @@ func get_input_vetor3i() -> Vector3i:
 func vector3_to_vector2(vector3: Vector3) -> Vector2:
 	return Vector2(vector3.x, vector3.y * Yspeed - vector3.z * Zspeed)
 	
-	
+func sqrt3(square: float) -> float:
+	if square < 0:
+		square = 0
+	return sqrt(square)
