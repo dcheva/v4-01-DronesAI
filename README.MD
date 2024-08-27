@@ -9,3 +9,4 @@
 - Update setting to optimise productivity but disable V-Sync to save power
 - Temporary disable BT
 - Tested proto3d without distamce scaling and bounds/collisions checks and signals
+- Tested: 3d/2d Clamp/Bounds, Parallax, Shadow, Animation, Scaling, Speed
