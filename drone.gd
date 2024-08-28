@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+var func_update_map_view
+
 var screen := Vector2i(1280, 540)
 var Xspeed := 500
 var Yspeed := 1.0/3.0
@@ -44,6 +46,9 @@ func _physics_process(delta: float) -> void:
 	$Shadow.position = Vector2(
 		20 + -sun_pos.x * position3.z / scale_to, 
 		40 + -sun_pos.y * 2 * position3.z / scale_to)
+	
+	# Update map view
+	func_update_map_view.call(position3)
 	
 	#print(scale_to, " ", position3, " ", position)
 	move_and_slide()

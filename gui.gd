@@ -20,3 +20,7 @@ func _set_view_dims(drone_max: Vector2) -> void:
 	print(view_dim)
 	view_scale = Vector2(drone_max.x / view_dim.x, drone_max.y / view_dim.y)
 	print(view_scale)
+	
+func _func_update_map_view(position3: Vector3) -> void:
+	print(position3)
+	
