@@ -11,3 +11,4 @@
 - Tested proto3d without distamce scaling and bounds/collisions checks and signals
 - Tested: 3d/2d Clamp/Bounds, Parallax, Shadow, Animation, Scaling, Speed
 - Start minimap as said in docs via $GUI._set_view in world.gd
+- It works!!! func_update_map_view.call(position3) /with/ $Drone.func_update_map_view = $GUI._func_update_map_view
