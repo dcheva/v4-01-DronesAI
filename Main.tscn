@@ -20,14 +20,17 @@ script = ExtResource("1_2ghck")
 position = Vector2(1088, 120)
 texture = ExtResource("1_30fly")
 
-[node name="Rpos" type="Sprite2D" parent="World/GUI/MapWindowR"]
+[node name="RPos" type="Sprite2D" parent="World/GUI/MapWindowR"]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(-144, 80)
 texture = ExtResource("3_hj2jt")
 
 [node name="MapWindowL" type="Sprite2D" parent="World/GUI"]
 position = Vector2(192, 120)
 texture = ExtResource("1_30fly")
+
+[node name="LPos" type="Sprite2D" parent="World/GUI/MapWindowL"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("3_hj2jt")
 
 [node name="Panel" type="Sprite2D" parent="World/GUI"]
 position = Vector2(640, 632)

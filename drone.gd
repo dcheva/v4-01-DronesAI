@@ -9,7 +9,7 @@ var Zspeed := 1.0/1.5
 var scale_k := 1.25
 var max_x := 1280
 var max_y := -1620
-var max_z := 480
+var max_z := 640
 var scale_to := 1.0
 var velocity3 := Vector3.ZERO
 var position3 := Vector3.ZERO
@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		40 + -sun_pos.y * 2 * position3.z / scale_to)
 	
 	# Update map view
-	func_update_map_view.call(position3)
+	func_update_map_view.call(position3, scale_to)
 	
 	#print(scale_to, " ", position3, " ", position)
 	move_and_slide()
@@ -67,7 +67,7 @@ func test_pos3() -> void:
 		velocity3test.y = 1
 	if position3.z < 0:
 		velocity3test.z = 1
-	if position3.z > max_z:
+	if position3.z > max_z * scale_to:
 		velocity3test.z = -1
 		
 	if velocity3test != velocity3:
