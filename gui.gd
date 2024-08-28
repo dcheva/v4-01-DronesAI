@@ -22,5 +22,5 @@ func _set_view_dims(drone_max: Vector2) -> void:
 	print(view_scale)
 	
 func _func_update_map_view(position3: Vector3) -> void:
-	print(position3)
-	
+	var view_pos2 = Vector2(position3.x/view_scale.x, position3.y/view_scale.y)
+	$MapWindowR/Rpos.position = win_min + view_pos2
