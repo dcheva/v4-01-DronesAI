@@ -10,3 +10,4 @@
 - Temporary disable BT
 - Tested proto3d without distamce scaling and bounds/collisions checks and signals
 - Tested: 3d/2d Clamp/Bounds, Parallax, Shadow, Animation, Scaling, Speed
+- Start minimap as said in docs via $GUI._set_view in world.gd
