@@ -29,7 +29,8 @@ func _physics_process(delta: float) -> void:
 	
 	# LERP veloctity 3d and change position in memory
 	velocity3 = lerp(velocity3, velocity3_to * scale_to, delta * 4)
-	get_tested_values3()
+	# Test position3 in bounds
+	test_pos3()
 	position3 += velocity3
 	# Convert Vector2 to Vector 3 and change position on screen
 	position = pos3_to_pos2(position3)
@@ -44,11 +45,11 @@ func _physics_process(delta: float) -> void:
 		20 + -sun_pos.x * position3.z / scale_to, 
 		40 + -sun_pos.y * 2 * position3.z / scale_to)
 	
-	print(scale_to, " ", position3, " ", position)
+	#print(scale_to, " ", position3, " ", position)
 	move_and_slide()
 	
 ## Test the position3 + velocity3 are in the bounds and are not collided
-func get_tested_values3() -> void:
+func test_pos3() -> void:
 # Correct velocity3 and add warning $AnimationPlayer.play("Warning, Damage")
 	var velocity3test := velocity3
 	if position3.x > max_x:
@@ -90,7 +91,3 @@ func get_input_vetor3i() -> Vector3i:
 func pos3_to_pos2(vector3: Vector3) -> Vector2:
 	return Vector2(vector3.x, screen.y + vector3.y * Yspeed - vector3.z * Zspeed)
 	
-func sqrt3(square: float) -> float:
-	if square < 0:
-		square = 0
-	return sqrt(square)
